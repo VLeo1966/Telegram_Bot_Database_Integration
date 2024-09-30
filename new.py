@@ -66,10 +66,8 @@ async def city(message: Message, state: FSMContext):
     conn.close()
 
     async with aiohttp.ClientSession() as session:
-        timeout = aiohttp.ClientTimeout(total=30)  # Устанавливаем таймаут 30 секунд
-        async with session.get(
-                f"http://api.openweathermap.org/data/2.5/weather?q={user_data['city']}&appid={WEATHER_API_KEY}&units=metric&lang=ru",
-                timeout=timeout) as response:
+       async with session.get(
+                f"https://api.openweathermap.org/data/2.5/weather?q={user_data['city']}&appid={WEATHER_API_KEY}&units=metric&lang=ru") as response:
 
             if response.status == 200:
                 weather_data = await response.json()
