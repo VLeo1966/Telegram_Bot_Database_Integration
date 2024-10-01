@@ -6,7 +6,7 @@ from aiogram.types import Message
 from aiogram.fsm.state import StatesGroup, State
 from aiogram.fsm.context import FSMContext
 
-from config import TOKEN, TOKEN2
+from config import TOKEN, WEATHER_API_KEY
 
 import random
 
@@ -46,7 +46,7 @@ class WeatherState(StatesGroup):
 
 # Функция для получения погоды
 def get_weather(city):
-    url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={TOKEN2}&units=metric&lang=ru"
+    url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={WEATHER_API_KEY}&units=metric&lang=ru"
     response = requests.get(url)
 
     # Проверка на успешный запрос

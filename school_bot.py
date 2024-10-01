@@ -7,10 +7,10 @@ from aiogram.types import Message
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.storage.memory import MemoryStorage
-from config import TOKEN
+from config import TOKEN3
 
 # Инициализация бота и диспетчера
-bot = Bot(token=TOKEN)
+bot = Bot(token=TOKEN3)
 storage = MemoryStorage()
 dp = Dispatcher(storage=storage)
 
