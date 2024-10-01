@@ -6,11 +6,11 @@ from aiogram.types import Message
 from aiogram.fsm.state import StatesGroup, State
 from aiogram.fsm.context import FSMContext
 
-from config import TOKEN, WEATHER_API_KEY
+from config import TOKEN2, WEATHER_API_KEY
 
 import random
 
-bot = Bot(token=TOKEN)
+bot = Bot(token=TOKEN2)
 dp = Dispatcher()
 
 
