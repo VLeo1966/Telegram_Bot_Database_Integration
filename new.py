@@ -18,13 +18,11 @@ dp = Dispatcher(storage=MemoryStorage())
 # Настройка логирования
 logging.basicConfig(level=logging.INFO)
 
-
 # Класс состояний пользователя
 class Form(StatesGroup):
     name = State()
     age = State()
     city = State()
-
 
 # Функция инициализации базы данных
 def init_db():
@@ -41,13 +39,11 @@ def init_db():
     conn.commit()
     conn.close()
 
-
 # Команда /start
 @dp.message(Command(commands=['start']))
 async def start(message: Message, state: FSMContext):
     await message.answer("Привет! Как тебя зовут?")
     await state.set_state(Form.name)
-
 
 # Получение имени пользователя
 @dp.message(Form.name)
@@ -55,7 +51,6 @@ async def name(message: Message, state: FSMContext):
     await state.update_data(name=message.text)
     await message.answer("Сколько тебе лет?")
     await state.set_state(Form.age)
-
 
 # Получение возраста пользователя
 @dp.message(Form.age)
@@ -69,7 +64,6 @@ async def age(message: Message, state: FSMContext):
         await state.set_state(Form.city)
     except ValueError:
         await message.answer("Пожалуйста, введи корректный возраст (целое число).")
-
 
 # Получение города пользователя и запрос погоды
 @dp.message(Form.city)
